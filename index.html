@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Paraíso - Administración</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+</head>
+<body 
+
+
+class="bg-light">
+
+  <div class="d-flex">
+    
+    <!-- Barra lateral --> 
+<nav class="bg-dark text-white p-3" style="width: 250px; height: 100vh;">
+    <h4>Hotel Paraíso</h4>
+    <ul class="nav flex-column mt-4">
+      <li class="nav-item">
+        <button class="nav-link text-white btn btn-link" data-bs-toggle="modal" data-bs-target="#modalInicio">🏠 Inicio</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link text-white btn btn-link" data-bs-toggle="modal" data-bs-target="#modalReservas">📅 Reservas</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link text-white btn btn-link" data-bs-toggle="modal" data-bs-target="#modalClientes">👥 Clientes</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link text-white btn btn-link" data-bs-toggle="modal" data-bs-target="#modalHabitaciones">🛏️ Habitaciones</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link text-white btn btn-link" data-bs-toggle="modal" data-bs-target="#modalConfig">⚙️ Configuración</button>
+      </li>
+    </ul>
+  </nav>
+  
+  
+
+    <!-- Contenido principal -->
+    <div class="flex-grow-1">
+
+   <!-- Menú superior corregido -->
+   <nav class="navbar navbar-light bg-white border-bottom p-3 shadow-sm">
+    <div class="container-fluid justify-content-between">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-hotel text-primary fs-3 me-2"></i>
+            <span class="navbar-brand mb-0 h1 text-primary">Administración Hotel Paraíso</span>
+        </div>
+        
+        <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="position-relative">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2y0NrwQPV5pc3jBQ3fhkAwY0P_C0PyH15tw&s" 
+                         class="rounded-circle me-2 profile-img-sm object-fit-cover" 
+                         alt="Usuario">
+                    <span class="position-absolute bottom-0 end-0 bg-success rounded-circle profile-status"></span>
+                </div>
+                <div class="d-flex flex-column">
+                    <strong class="text-dark">Jhaneth Paco Rios</strong>
+                    <small class="text-muted">Administrador</small>
+                </div>
+            </a>
+            
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="userDropdown">
+                <li>
+                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#perfilModal">
+                        <i class="fas fa-user-circle me-2 text-primary"></i> Mi perfil
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item text-danger" href="#" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Modal de Perfil corregido -->
+<div class="modal fade" id="perfilModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Mi Perfil</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2y0NrwQPV5pc3jBQ3fhkAwY0P_C0PyH15tw&s" 
+                         class="rounded-circle mb-3 profile-img-lg object-fit-cover" 
+                         alt="Foto de perfil">
+                    <h4>Jhaneth Paco Rios</h4>
+                    <span class="badge bg-primary">Administrador</span>
+                </div>
+                
+                <div class="list-group">
+                    <div class="list-group-item border-0">
+                        <div class="d-flex justify-content-between">
+                            <span><i class="fas fa-envelope me-2 text-muted"></i> Email:</span>
+                            <strong>pacoriosjhaneth@gmail.com</strong>
+                        </div>
+                    </div>
+                    <div class="list-group-item border-0">
+                        <div class="d-flex justify-content-between">
+                            <span><i class="fas fa-phone me-2 text-muted"></i> Teléfono:</span>
+                            <strong>+591 69731430</strong>
+                        </div>
+                    </div>
+                    <div class="list-group-item border-0">
+                        <div class="d-flex justify-content-between">
+                            <span><i class="fas fa-book me-2 text-muted"></i> Materia:</span>
+                            <strong>INF-122 Programación Web II</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Editar perfil</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS Bundle con Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Función para cerrar sesión mejorada
+document.getElementById('logoutBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Mostrar confirmación con estilo
+    const confirmar = confirm('¿Está seguro que desea cerrar sesión?');
+    if(confirmar) {
+        // Mostrar feedback visual
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Cerrando sesión...';
+        this.classList.add('disabled');
+        
+        // Simular proceso de cierre de sesión
+        setTimeout(() => {
+            // Redirección a página de login
+            window.location.href = 'login.html';
+        }, 1500);
+    }
+});
+</script>
+
+   <!-- Panel de oferta de habitaciones -->
+<div class="container mt-4">
+  <h3>Ofertas de Habitaciones</h3>
+  <div class="row">
+      <!-- Habitación Simple -->
+      <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEoaqA0EnStCfdVF8Dfx5aH32HD7uaRcpNCA&s" 
+                   class="card-img-top object-fit-cover" 
+                   style="height: 200px;" 
+                   alt="Habitación Simple">
+              <div class="card-body">
+                  <h5 class="card-title">Habitación Simple</h5>
+                  <p class="card-text text-success fw-bold">Bs. 250 por noche</p>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalHabitacionSimple">
+                      Ver detalles
+                  </button>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Habitación Doble -->
+      <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi_kQpRy8R6MHjbfjPso88i3ptuazQO7WaCg&s" 
+                   class="card-img-top object-fit-cover" 
+                   style="height: 200px;" 
+                   alt="Habitación Doble">
+              <div class="card-body">
+                  <h5 class="card-title">Habitación Doble</h5>
+                  <p class="card-text text-success fw-bold">Bs. 400 por noche</p>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalHabitacionDoble">
+                      Ver detalles
+                  </button>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Suite Deluxe -->
+      <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+              <img src="https://images.mirai.com/HOST/500255/room-20424.jpg" 
+                   class="card-img-top object-fit-cover" 
+                   style="height: 200px;" 
+                   alt="Suite Deluxe">
+              <div class="card-body">
+                  <h5 class="card-title">Suite Deluxe</h5>
+                  <p class="card-text text-success fw-bold">Bs. 650 por noche</p>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalHabitacionSuite">
+                      Ver detalles
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal Habitación Simple -->
+<div class="modal fade" id="modalHabitacionSimple" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title">Habitación Simple - Detalles</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div id="carouselSimple" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-inner rounded">
+                              <div class="carousel-item active">
+                                  <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                       class="d-block w-100" 
+                                       style="height: 300px; object-fit: cover;" 
+                                       alt="Habitación Simple">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                       class="d-block w-100" 
+                                       style="height: 300px; object-fit: cover;" 
+                                       alt="Habitación Simple">
+                              </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselSimple" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon"></span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselSimple" data-bs-slide="next">
+                              <span class="carousel-control-next-icon"></span>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <h4>Bs. 250 <small class="text-muted">/noche</small></h4>
+                      <ul class="list-group list-group-flush mb-3">
+                          <li class="list-group-item"><i class="fas fa-ruler-combined me-2"></i> 20 m²</li>
+                          <li class="list-group-item"><i class="fas fa-bed me-2"></i> 1 cama individual</li>
+                          <li class="list-group-item"><i class="fas fa-wifi me-2"></i> WiFi gratis</li>
+                          <li class="list-group-item"><i class="fas fa-tv me-2"></i> TV 32"</li>
+                          <li class="list-group-item"><i class="fas fa-snowflake me-2"></i> Aire acondicionado</li>
+                          <li class="list-group-item"><i class="fas fa-bath me-2"></i> Baño privado</li>
+                      </ul>
+                      <div class="alert alert-info">
+                          <i class="fas fa-info-circle me-2"></i> Incluye desayuno continental
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Reservar ahora</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal Habitación Doble (estructura similar) -->
+<div class="modal fade" id="modalHabitacionDoble" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title">Habitación Doble - Detalles</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div id="carouselDoble" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-inner rounded">
+                              <div class="carousel-item active">
+                                  <img src="https://image-tc.galaxy.tf/wijpeg-8l5lyyrd03o9e5ri84dh95iyh/doubledeluxe1.jpg" 
+                                       class="d-block w-100" 
+                                       style="height: 300px; object-fit: cover;" 
+                                       alt="Habitación Doble">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                       class="d-block w-100" 
+                                       style="height: 300px; object-fit: cover;" 
+                                       alt="Habitación Doble">
+                              </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselDoble" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon"></span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselDoble" data-bs-slide="next">
+                              <span class="carousel-control-next-icon"></span>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <h4>Bs. 400 <small class="text-muted">/noche</small></h4>
+                      <ul class="list-group list-group-flush mb-3">
+                          <li class="list-group-item"><i class="fas fa-ruler-combined me-2"></i> 30 m²</li>
+                          <li class="list-group-item"><i class="fas fa-bed me-2"></i> 2 camas individuales</li>
+                          <li class="list-group-item"><i class="fas fa-wifi me-2"></i> WiFi gratis</li>
+                          <li class="list-group-item"><i class="fas fa-tv me-2"></i> TV 40"</li>
+                          <li class="list-group-item"><i class="fas fa-snowflake me-2"></i> Aire acondicionado</li>
+                          <li class="list-group-item"><i class="fas fa-bath me-2"></i> Baño privado con amenities</li>
+                      </ul>
+                      <div class="alert alert-info">
+                          <i class="fas fa-info-circle me-2"></i> Incluye desayuno buffet
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Reservar ahora</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal Suite Deluxe (estructura similar) -->
+<div class="modal fade" id="modalHabitacionSuite" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title">Suite Deluxe - Detalles</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div id="carouselSuite" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-inner rounded">
+                              <div class="carousel-item active">
+                                  <img src="https://i0.wp.com/www.puntasal.com.pe/wp-content/uploads/2022/02/Suite-Deluxe-Punta-Sal-03-1.jpg?fit=1920%2C1080&ssl=1" 
+                                       class="d-block w-100" 
+                                       style="height: 300px; object-fit: cover;" 
+                                       alt="Suite Deluxe">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="https://ap-hotelsresorts.com/wp-content/uploads/2021/01/Principal-3-scaled.jpg" 
+                                       class="d-block w-100" 
+                                       style="height: 300px; object-fit: cover;" 
+                                       alt="Suite Deluxe">
+                              </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselSuite" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon"></span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselSuite" data-bs-slide="next">
+                              <span class="carousel-control-next-icon"></span>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <h4>Bs. 650 <small class="text-muted">/noche</small></h4>
+                      <ul class="list-group list-group-flush mb-3">
+                          <li class="list-group-item"><i class="fas fa-ruler-combined me-2"></i> 50 m²</li>
+                          <li class="list-group-item"><i class="fas fa-bed me-2"></i> 1 cama king size</li>
+                          <li class="list-group-item"><i class="fas fa-wifi me-2"></i> WiFi premium</li>
+                          <li class="list-group-item"><i class="fas fa-tv me-2"></i> TV 55" Smart TV</li>
+                          <li class="list-group-item"><i class="fas fa-snowflake me-2"></i> Aire acondicionado</li>
+                          <li class="list-group-item"><i class="fas fa-hot-tub me-2"></i> Jacuzzi privado</li>
+                          <li class="list-group-item"><i class="fas fa-umbrella-beach me-2"></i> Vista al mar</li>
+                      </ul>
+                      <div class="alert alert-info">
+                          <i class="fas fa-info-circle me-2"></i> Incluye desayuno buffet y acceso a lounge
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Reservar ahora</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Incluir Bootstrap JS y Font Awesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    .object-fit-cover {
+        object-fit: cover; /* Asegura que la imagen cubra el espacio manteniendo proporciones */
+        object-position: center; /* Centra la imagen */
+    }
+    .card {
+        transition: transform 0.3s ease; /* Efecto hover suave */
+    }
+    .card:hover {
+        transform: translateY(-5px); /* Efecto levitar al pasar el mouse */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+</style>
+
+      <!-- MODAL NUEVA RESERVA -->
+<div class="modal fade" id="reservaModal" tabindex="-1" aria-labelledby="reservaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form>
+          <div class="modal-header">
+            <h5 class="modal-title" id="reservaModalLabel">Nueva Reserva</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Nombre del Cliente</label>
+              <input type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Fecha de Entrada</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Fecha de Salida</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tipo de Habitación</label>
+              <select class="form-select" required>
+                <option selected disabled>Selecciona...</option>
+                <option value="simple">Simple</option>
+                <option value="doble">Doble</option>
+                <option value="suite">Suite Deluxe</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Número de Personas</label>
+              <input type="number" class="form-control" min="1" max="10" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar Reserva</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+        <!-- Botón para abrir el modal de reserva -->
+
+        <!-- Botón para abrir el modal de reserva - Ahora alineado a la izquierda -->
+<div class="container mt-4">
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reservaModal">
+        <i class="fas fa-plus"></i> ➕ Nueva Reserva
+    </button>
+</div>
+        
+    
+          <!-- Sección para mostrar las reservas realizadas (simulada) -->
+          <div class="container mt-4">
+            <h4>Reservas Registradas</h4>
+            <ul id="listaReservas" class="list-group">
+              <!-- Las reservas se agregarán aquí dinámicamente -->
+            </ul>
+          </div>
+    
+          <!-- Script para capturar el formulario del modal -->
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const form = document.querySelector("#reservaModal form");
+              const lista = document.getElementById("listaReservas");
+    
+              form.addEventListener("submit", function (e) {
+                e.preventDefault(); // Evitar que recargue la página
+    
+                const nombre = form.querySelector('input[type="text"]').value;
+                const entrada = form.querySelector('input[type="date"]').value;
+                const salida = form.querySelectorAll('input[type="date"]')[1].value;
+                const tipo = form.querySelector("select").value;
+                const personas = form.querySelector('input[type="number"]').value;
+    
+                const reservaTexto = `${nombre} reservó una habitación ${tipo} del ${entrada} al ${salida} para ${personas} persona(s).`;
+    
+                const li = document.createElement("li");
+                li.className = "list-group-item";
+                li.textContent = reservaTexto;
+                lista.appendChild(li);
+    
+                form.reset();
+                const modal = bootstrap.Modal.getInstance(document.getElementById('reservaModal'));
+                modal.hide();
+              });
+            });
+          </script>
+    
+      
+
+   <!-- Carrusel de Áreas Comunes del Hotel -->
+   <div class="container-fluid px-0 mt-5">
+    <h3 class="mb-4">Áreas Comunes del Hotel</h3>
+    <div id="areasComunesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner rounded shadow">
+        <div class="carousel-item active">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/38/78/e0/rio-selva-resort-yungas.jpg?w=1200&h=-1&s=1" class="d-block w-100" alt="Piscina">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Piscina</h5>
+            <p>Área climatizada para relajarte.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfnX22kWk6fXjFF37RAv8DlolqDSG-y1A31Q&s" class="d-block w-100" alt="Restaurante">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Restaurante</h5>
+            <p>Gastronomía nacional e internacional.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO-4ssRzKOQRD6bS9lh6JpEQ377FF5_flL4Q&s" class="d-block w-100" alt="Gimnasio">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Gimnasio</h5>
+            <p>Equipado y disponible 24/7.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://watermark.lovepik.com/photo/20211201/large/lovepik-hotel-lobby-space-picture_501324584.jpg" class="d-block w-100" alt="Lobby">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Lobby</h5>
+            <p>Espacio cómodo para recibir a nuestros huéspedes.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHqRXK6Ns9qcOfqIRTUUR6KWXdkphiBf1-qg&s" class="d-block w-100" alt="Spa">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Spa</h5>
+            <p>Zona de relajación y masajes.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#areasComunesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#areasComunesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- MODALES -->
+
+  <!-- Modal Inicio -->
+  <div class="modal fade" id="modalInicio" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Inicio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/351788525.jpg?k=b89f6c325ac15ec8611098cd09936288b03ea3be88f309cc6352a51b8e955d9c&o=&hp=1" alt="Inicio" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Reservas -->
+  <!-- Modal Reservas Mejorado -->
+<div class="modal fade" id="modalReservas" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">
+          <i class="fas fa-calendar-check me-2"></i>Reservas Activas
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Filtros de búsqueda -->
+        <div class="row mb-4 g-3">
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Buscar por nombre" id="buscarNombre">
+          </div>
+          <div class="col-md-3">
+            <select class="form-select" id="filtroEstado">
+              <option value="">Todos los estados</option>
+              <option value="confirmada">Confirmada</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="cancelada">Cancelada</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <input type="date" class="form-control" id="filtroFecha">
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-primary w-100" id="btnBuscar">
+              <i class="fas fa-search"></i> Buscar
+            </button>
+          </div>
+        </div>
+
+        <!-- Listado de reservas -->
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>ID</th>
+                <th>Huésped</th>
+                <th>Habitación</th>
+                <th>Fechas</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="listaReservas">
+              <!-- Ejemplo de datos estáticos (en producción vendrían de una API) -->
+              <tr>
+                <td>#RES-1001</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" 
+                         class="rounded-circle me-2" 
+                         style="width: 40px; height: 40px; object-fit: cover;" 
+                         alt="Huésped">
+                    <div>
+                      <strong>María González</strong><br>
+                      <small class="text-muted">CI: 1234567 LP</small>
+                    </div>
+                  </div>
+                </td>
+                <td>Suite Deluxe (305)</td>
+                <td>
+                  15/11/2023 - 20/11/2023<br>
+                  <small class="text-muted">(5 noches)</small>
+                </td>
+                <td>
+                  <span class="badge bg-success">Confirmada</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-outline-primary me-1" title="Ver detalles">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-warning" title="Editar">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#RES-1002</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                         class="rounded-circle me-2" 
+                         style="width: 40px; height: 40px; object-fit: cover;" 
+                         alt="Huésped">
+                    <div>
+                      <strong>Carlos Mendoza</strong><br>
+                      <small class="text-muted">CI: 7654321 SC</small>
+                    </div>
+                  </div>
+                </td>
+                <td>Habitación Doble (204)</td>
+                <td>
+                  18/11/2023 - 22/11/2023<br>
+                  <small class="text-muted">(4 noches)</small>
+                </td>
+                <td>
+                  <span class="badge bg-warning text-dark">Pendiente</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-outline-primary me-1" title="Ver detalles">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-warning" title="Editar">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Paginación -->
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Anterior</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Siguiente</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevaReserva">
+          <i class="fas fa-plus me-1"></i> Nueva Reserva
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Función para cargar reservas (ejemplo)
+function cargarReservas() {
+  // En una implementación real, esto haría una petición AJAX
+  console.log("Cargando reservas...");
+  
+  // Ejemplo de cómo sería con fetch:
+  /*
+  fetch('/api/reservas')
+    .then(response => response.json())
+    .then(data => {
+      const tbody = document.getElementById('listaReservas');
+      tbody.innerHTML = '';
+      
+      data.reservas.forEach(reserva => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${reserva.id}</td>
+            <td>${reserva.huesped}</td>
+            <td>${reserva.habitacion}</td>
+            <td>${reserva.fechas}</td>
+            <td><span class="badge ${reserva.estado === 'confirmada' ? 'bg-success' : 'bg-warning'}">${reserva.estado}</span></td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary">Ver</button>
+            </td>
+          </tr>
+        `;
+      });
+    });
+  */
+}
+
+// Evento cuando se abre el modal
+document.getElementById('modalReservas').addEventListener('shown.bs.modal', function() {
+  cargarReservas();
+});
+</script>
+
+  <!-- Modal Clientes -->
+  <!-- Modal Clientes Mejorado -->
+<div class="modal fade" id="modalClientes" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">
+          <i class="fas fa-users me-2"></i>Administración de Clientes
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Barra de herramientas -->
+        <div class="d-flex justify-content-between mb-4">
+          <div class="input-group" style="width: 300px;">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" class="form-control" placeholder="Buscar cliente..." id="buscarCliente">
+          </div>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNuevoCliente">
+            <i class="fas fa-plus-circle me-1"></i> Nuevo Cliente
+          </button>
+        </div>
+
+        <!-- Listado de clientes -->
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>#</th>
+                <th>Cliente</th>
+                <th>Contacto</th>
+                <th>Documento</th>
+                <th>Historial</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Ejemplo de datos estáticos -->
+              <tr>
+                <td>1</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                         class="rounded-circle me-2" 
+                         style="width: 40px; height: 40px; object-fit: cover;" 
+                         alt="Cliente">
+                    <div>
+                      <strong>Ana María Pérez</strong><br>
+                      <small class="text-muted">Nacional</small>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <i class="fas fa-envelope text-muted me-1"></i> ana@mail.com<br>
+                  <i class="fas fa-phone text-muted me-1"></i> +591 71234567
+                </td>
+                <td>
+                  CI: 1234567<br>
+                  <small class="text-muted">La Paz</small>
+                </td>
+                <td>
+                  5 reservas<br>
+                  <small class="text-success">Última: 15/11/2023</small>
+                </td>
+                <td>
+                  <span class="badge bg-success">Activo</span>
+                </td>
+                <td>
+                  <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-primary" title="Ver perfil">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn btn-outline-warning" title="Editar">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-outline-danger" title="Desactivar">
+                      <i class="fas fa-user-slash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                         class="rounded-circle me-2" 
+                         style="width: 40px; height: 40px; object-fit: cover;" 
+                         alt="Cliente">
+                    <div>
+                      <strong>Juan Carlos Gómez</strong><br>
+                      <small class="text-muted">Extranjero</small>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <i class="fas fa-envelope text-muted me-1"></i> juan@mail.com<br>
+                  <i class="fas fa-phone text-muted me-1"></i> +1 234 567 890
+                </td>
+                <td>
+                  Pasaporte: AB123456<br>
+                  <small class="text-muted">EE.UU.</small>
+                </td>
+                <td>
+                  2 reservas<br>
+                  <small class="text-muted">Última: 10/10/2023</small>
+                </td>
+                <td>
+                  <span class="badge bg-warning text-dark">Inactivo</span>
+                </td>
+                <td>
+                  <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-primary" title="Ver perfil">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn btn-outline-success" title="Activar">
+                      <i class="fas fa-user-check"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Paginación -->
+        <nav aria-label="Page navigation" class="mt-3">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Anterior</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Siguiente</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="fas fa-times me-1"></i> Cerrar
+        </button>
+        <button type="button" class="btn btn-primary">
+          <i class="fas fa-file-excel me-1"></i> Exportar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Nuevo Cliente -->
+<div class="modal fade" id="modalNuevoCliente" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">
+          <i class="fas fa-user-plus me-2"></i>Nuevo Cliente
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formNuevoCliente">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nombreCliente" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" id="nombreCliente" required>
+            </div>
+            <div class="col-md-6">
+              <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
+              <select class="form-select" id="tipoDocumento" required>
+                <option value="ci">Cédula de Identidad</option>
+                <option value="pasaporte">Pasaporte</option>
+                <option value="nit">NIT</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="numeroDocumento" class="form-label">Número de Documento</label>
+              <input type="text" class="form-control" id="numeroDocumento" required>
+            </div>
+            <div class="col-md-6">
+              <label for="telefonoCliente" class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="telefonoCliente">
+            </div>
+            <div class="col-md-12">
+              <label for="emailCliente" class="form-label">Email</label>
+              <input type="email" class="form-control" id="emailCliente">
+            </div>
+            <div class="col-md-12">
+              <label for="direccionCliente" class="form-label">Dirección</label>
+              <textarea class="form-control" id="direccionCliente" rows="2"></textarea>
+            </div>
+            <div class="col-md-6">
+              <label for="nacionalidadCliente" class="form-label">Nacionalidad</label>
+              <input type="text" class="form-control" id="nacionalidadCliente" value="Boliviana">
+            </div>
+            <div class="col-md-6">
+              <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+              <input type="date" class="form-control" id="fechaNacimiento">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success">Guardar Cliente</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Función para cargar clientes (ejemplo)
+function cargarClientes() {
+  // En una implementación real, esto haría una petición AJAX
+  console.log("Cargando clientes...");
+  
+  // Ejemplo con fetch:
+  /*
+  fetch('/api/clientes')
+    .then(response => response.json())
+    .then(data => {
+      // Lógica para llenar la tabla
+    });
+  */
+}
+
+// Evento cuando se abre el modal
+document.getElementById('modalClientes').addEventListener('shown.bs.modal', function() {
+  cargarClientes();
+});
+</script>
+
+  <!-- Modal Habitaciones -->
+ <!-- Panel de oferta de habitaciones con imágenes del mismo tamaño -->
+<div class="container mt-4">
+  <h3>Ofertas de Habitaciones</h3>
+  <div class="row">
+      <!-- Habitación Simple -->
+      <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEoaqA0EnStCfdVF8Dfx5aH32HD7uaRcpNCA&s" 
+                   class="card-img-top object-fit-cover" 
+                   style="height: 200px;" 
+                   alt="Habitación Simple">
+              <div class="card-body">
+                  <h5 class="card-title">Habitación Simple</h5>
+                  <p class="card-text text-success fw-bold">Bs. 250 por noche</p>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalHabitaciones" data-habitacion="simple">
+                      Ver detalles
+                  </button>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Habitación Doble -->
+      <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi_kQpRy8R6MHjbfjPso88i3ptuazQO7WaCg&s" 
+                   class="card-img-top object-fit-cover" 
+                   style="height: 200px;" 
+                   alt="Habitación Doble">
+              <div class="card-body">
+                  <h5 class="card-title">Habitación Doble</h5>
+                  <p class="card-text text-success fw-bold">Bs. 400 por noche</p>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalHabitaciones" data-habitacion="doble">
+                      Ver detalles
+                  </button>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Suite Deluxe -->
+      <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+              <img src="https://images.mirai.com/HOST/500255/room-20424.jpg" 
+                   class="card-img-top object-fit-cover" 
+                   style="height: 200px;" 
+                   alt="Suite Deluxe">
+              <div class="card-body">
+                  <h5 class="card-title">Suite Deluxe</h5>
+                  <p class="card-text text-success fw-bold">Bs. 650 por noche</p>
+                  <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalHabitaciones" data-habitacion="suite">
+                      Ver detalles
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal Habitaciones Mejorado -->
+<div class="modal fade" id="modalHabitaciones" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white">
+      <h5 class="modal-title">
+        <i class="fas fa-bed me-2"></i>Detalles de Habitación
+      </h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs mb-4" id="habitacionesTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="simple-tab" data-bs-toggle="tab" data-bs-target="#simple" type="button">
+            Simple
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="doble-tab" data-bs-toggle="tab" data-bs-target="#doble" type="button">
+            Doble
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="suite-tab" data-bs-toggle="tab" data-bs-target="#suite" type="button">
+            Suite
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Habitación Simple -->
+        <div class="tab-pane active" id="simple" role="tabpanel">
+          <div class="row">
+            <div class="col-md-6">
+              <div id="carouselSimple" class="carousel slide shadow" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselSimple" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#carouselSimple" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#carouselSimple" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Habitación Simple 1">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Habitación Simple 2">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://image-tc.galaxy.tf/wijpeg-9bs9neuaf1few9rlmvbc5dmqg/simpledeluxe1.jpg" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Habitación Simple 3">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselSimple" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselSimple" data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4>Habitación Simple</h4>
+              <p class="text-success fw-bold">Bs. 250 por noche</p>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><i class="fas fa-ruler-combined me-2"></i> 20 m²</li>
+                <li class="list-group-item"><i class="fas fa-bed me-2"></i> 1 cama individual</li>
+                <li class="list-group-item"><i class="fas fa-wifi me-2"></i> WiFi gratis</li>
+                <li class="list-group-item"><i class="fas fa-tv me-2"></i> TV 32"</li>
+                <li class="list-group-item"><i class="fas fa-snowflake me-2"></i> Aire acondicionado</li>
+              </ul>
+              <button class="btn btn-primary">Reservar ahora</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Habitación Doble -->
+        <div class="tab-pane" id="doble" role="tabpanel">
+          <div class="row">
+            <div class="col-md-6">
+              <div id="carouselDoble" class="carousel slide shadow" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselDoble" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#carouselDoble" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#carouselDoble" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                    <img src="https://image-tc.galaxy.tf/wijpeg-8l5lyyrd03o9e5ri84dh95iyh/doubledeluxe1.jpg" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Habitación Doble 1">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Habitación Doble 2">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Habitación Doble 3">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDoble" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselDoble" data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4>Habitación Doble</h4>
+              <p class="text-success fw-bold">Bs. 400 por noche</p>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><i class="fas fa-ruler-combined me-2"></i> 30 m²</li>
+                <li class="list-group-item"><i class="fas fa-bed me-2"></i> 2 camas individuales</li>
+                <li class="list-group-item"><i class="fas fa-wifi me-2"></i> WiFi gratis</li>
+                <li class="list-group-item"><i class="fas fa-tv me-2"></i> TV 40"</li>
+                <li class="list-group-item"><i class="fas fa-snowflake me-2"></i> Aire acondicionado</li>
+                <li class="list-group-item"><i class="fas fa-coffee me-2"></i> Cafetera</li>
+              </ul>
+              <button class="btn btn-primary">Reservar ahora</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suite Deluxe -->
+        <div class="tab-pane" id="suite" role="tabpanel">
+          <div class="row">
+            <div class="col-md-6">
+              <div id="carouselSuite" class="carousel slide shadow" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                    <img src="https://i0.wp.com/www.puntasal.com.pe/wp-content/uploads/2022/02/Suite-Deluxe-Punta-Sal-03-1.jpg?fit=1920%2C1080&ssl=1" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Suite Deluxe 1">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images.mirai.com/INFOROOMS/100375803/qM32tJ6CrYVgSjmZZVBV/qM32tJ6CrYVgSjmZZVBV_original.jpg" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Suite Deluxe 2">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://ap-hotelsresorts.com/wp-content/uploads/2021/01/Principal-3-scaled.jpg" 
+                         class="d-block w-100" 
+                         style="height: 300px; object-fit: cover;" 
+                         alt="Suite Deluxe 3">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselSuite" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselSuite" data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4>Suite Deluxe</h4>
+              <p class="text-success fw-bold">Bs. 650 por noche</p>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><i class="fas fa-ruler-combined me-2"></i> 50 m²</li>
+                <li class="list-group-item"><i class="fas fa-bed me-2"></i> 1 cama king size</li>
+                <li class="list-group-item"><i class="fas fa-wifi me-2"></i> WiFi premium</li>
+                <li class="list-group-item"><i class="fas fa-tv me-2"></i> TV 55" Smart TV</li>
+                <li class="list-group-item"><i class="fas fa-snowflake me-2"></i> Aire acondicionado</li>
+                <li class="list-group-item"><i class="fas fa-hot-tub me-2"></i> Jacuzzi</li>
+                <li class="list-group-item"><i class="fas fa-utensils me-2"></i> Desayuno buffet incluido</li>
+              </ul>
+              <button class="btn btn-primary">Reservar ahora</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <i class="fas fa-times me-1"></i> Cerrar
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// Activar la pestaña correspondiente al hacer clic en "Ver detalles"
+document.querySelectorAll('[data-bs-target="#modalHabitaciones"]').forEach(button => {
+button.addEventListener('click', function() {
+  const habitacion = this.getAttribute('data-habitacion');
+  const tab = document.querySelector(`#${habitacion}-tab`);
+  if (tab) {
+    const bsTab = new bootstrap.Tab(tab);
+    bsTab.show();
+  }
+});
+});
+</script>
+
+  <!-- Modal Configuración -->
+  <div class="modal fade" id="modalConfig" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Configuración</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://supportportal.zendesk.com/hc/article_attachments/24011086603799" alt="Configuración" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </div> <!-- Fin contenido principal -->
+  </div> <!-- Fin d-flex -->
+
+
+</body>
+
+
+</html>
